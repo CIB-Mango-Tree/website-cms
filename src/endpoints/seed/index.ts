@@ -213,16 +213,6 @@ export const seed = async ({
               url: '/posts',
             },
           },
-          {
-            link: {
-              type: 'reference',
-              label: 'Contact',
-              reference: {
-                relationTo: 'pages',
-                value: contactPage.id,
-              },
-            },
-          },
         ],
       },
     }),
