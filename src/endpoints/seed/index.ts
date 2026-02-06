@@ -197,8 +197,7 @@ export const seed = async ({
       collection: 'pages',
       depth: 0,
       data: home({ heroImage: imageHomeDoc, metaImage: image2Doc }),
-    }),
-  ])
+  })
 
   payload.logger.info(`— Seeding globals...`)
 
