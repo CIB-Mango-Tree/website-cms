@@ -18,7 +18,7 @@
   "d1_databases": [
     {
       "binding": "D1",
-      "database_id": "b18ad1cf-405b-4b9a-8d13-5246f590d343",
+      "database_id": "6a8d3d9f-d467-4ab4-98f3-5300dd8d1dc0",
       "database_name": "cms-db",
       "remote": true,
     },
@@ -33,7 +33,8 @@
   "r2_buckets": [
     {
       "binding": "R2",
-      "bucket_name": "cms-r2-bucket","preview_bucket_name": "cms-r2-bucket",
+      "bucket_name": "cms-r2-bucket",
+      "preview_bucket_name": "cms-r2-bucket",
     },
     // Create a R2 binding with the binding name "NEXT_INC_CACHE_R2_BUCKET"
     // {
@@ -41,7 +42,6 @@
     //   "bucket_name": "<BUCKET_NAME>",
     // },
   ],
-
   // Here's how to configure an additional environment
   // It can be deployed with `CLOUDFLARE_ENV=staging pnpm run deploy`
   // "env": {
