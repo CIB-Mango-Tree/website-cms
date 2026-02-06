@@ -74,15 +74,15 @@ export const FormBlock: React.FC<
             method: 'POST',
           })
 
-          const res = await req.json()
+          const res = (await req.json()) as any;
 
           clearTimeout(loadingTimerID)
 
-          if (res.status >= 400) {
+          if (req.status >= 400) {
             setIsLoading(false)
 
             setError({
-              message: res != null ? (res.errors?.[0]?.message || 'Internal Server Error') : 'Internal Server Error',
+              message: res.errors?.[0]?.message || 'Internal Server Error',
               status: res.status,
             })
 
