@@ -25,9 +25,16 @@
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
   },
   "dependencies": {
+    "@payloadcms/admin-bar": "3.70.0",
+    "@payloadcms/live-preview-react": "3.70.0",
     "@opennextjs/cloudflare": "^1.11.0",
     "@payloadcms/db-d1-sqlite": "3.70.0",
     "@payloadcms/next": "3.70.0",
+    "@payloadcms/plugin-form-builder": "3.70.0",
+    "@payloadcms/plugin-nested-docs": "3.70.0",
+    "@payloadcms/plugin-redirects": "3.70.0",
+    "@payloadcms/plugin-search": "3.70.0",
+    "@payloadcms/plugin-seo": "3.70.0",
     "@payloadcms/richtext-lexical": "3.70.0",
     "@payloadcms/storage-r2": "3.70.0",
     "@payloadcms/ui": "3.70.0",
@@ -35,9 +42,14 @@
     "dotenv": "16.4.7",
     "graphql": "^16.8.1",
     "next": "15.4.10",
+    "next-sitemap": "^4.2.3",
     "payload": "3.70.0",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "prism-react-renderer": "^2.3.1",
+    "react-hook-form": "7.71.1",
+    "sharp": "0.34.2",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",
