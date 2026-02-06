@@ -78,7 +78,7 @@ export const FormBlock: React.FC<
 
           clearTimeout(loadingTimerID)
 
-          if (req.status >= 400) {
+          if (res.status >= 400) {
             setIsLoading(false)
 
             setError({
