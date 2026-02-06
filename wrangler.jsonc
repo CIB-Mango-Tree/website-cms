@@ -46,9 +46,9 @@
     "logs": {
       "enabled": true,
       "invocation_logs": true,
-      "traces": {
-        "enabled": true
-      }
+    },
+    "traces": {
+      "enabled": true
     }
   }
   // Here's how to configure an additional environment
