@@ -59,7 +59,6 @@ export default buildConfig({
       ],
     }
   },
-  
   collections: [Pages, Posts, Media, Categories, Users],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
