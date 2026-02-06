@@ -42,6 +42,12 @@
     //   "bucket_name": "<BUCKET_NAME>",
     // },
   ],
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
+  }
   // Here's how to configure an additional environment
   // It can be deployed with `CLOUDFLARE_ENV=staging pnpm run deploy`
   // "env": {
