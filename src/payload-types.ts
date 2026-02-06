@@ -420,6 +420,7 @@ export interface User {
   id: number;
   updatedAt: string;
   createdAt: string;
+  name: string;
   email: string;
   resetPasswordToken?: string | null;
   resetPasswordExpiration?: string | null;
