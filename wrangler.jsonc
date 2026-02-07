@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "main": "./customWorker.ts",
+  "main": ".open-next/worker.js",
   "name": "website-cms",
   "compatibility_date": "2025-08-15",
   "compatibility_flags": [

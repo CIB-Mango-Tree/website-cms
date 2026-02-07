@@ -1,7 +1,6 @@
 import { sqliteD1Adapter } from '@payloadcms/db-d1-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
-import sharp from 'sharp'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import { CloudflareContext, getCloudflareContext } from '@opennextjs/cloudflare'
@@ -56,7 +55,7 @@ export default buildConfig({
           height: 900,
         },
       ],
-    }
+    },
   },
   collections: [Pages, Posts, Media, Categories, Users],
   editor: lexicalEditor(),
@@ -70,10 +69,9 @@ export default buildConfig({
       bucket: cloudflare.env.R2,
       collections: { media: true },
     }),
-    ...plugins
+    ...plugins,
   ],
   globals: [Header, Footer],
-  sharp
 })
 
 // Adapted from https://github.com/opennextjs/opennextjs-cloudflare/blob/d00b3a13e42e65aad76fba41774815726422cc39/packages/cloudflare/src/api/cloudflare-context.ts#L328C36-L328C46
