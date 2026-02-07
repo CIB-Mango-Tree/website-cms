@@ -6,7 +6,7 @@
   "compatibility_flags": [
     // Enable Node.js API
     // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#nodejs-compatibility-flag
-    "nodejs_compat",
+    "nodejs_compat_v2",
     // Allow to fetch URLs in your app
     // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public
     "global_fetch_strictly_public",
@@ -48,9 +48,9 @@
       "invocation_logs": true,
     },
     "traces": {
-      "enabled": true
-    }
-  }
+      "enabled": true,
+    },
+  },
   // Here's how to configure an additional environment
   // It can be deployed with `CLOUDFLARE_ENV=staging pnpm run deploy`
   // "env": {
