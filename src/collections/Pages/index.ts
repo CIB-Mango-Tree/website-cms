@@ -7,6 +7,12 @@ import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
+import AccordionBlock from '@/blocks/Accordion/'
+import BadgeListBlock from '@/blocks/BadgeList'
+import MediaNewsListBlock from '@/blocks/MediaNewsList'
+import DatasetListBlock from '@/blocks/DatasetList'
+import ToolsListBlock from '@/blocks/ToolsList'
+import ContributionStepListBlock from '@/blocks/ContributionStepList'
 import SelectorBlock from '@/blocks/Selector'
 import { hero } from '@/heros/config'
 import { slugField } from 'payload'
@@ -73,7 +79,20 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, SelectorBlock],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                SelectorBlock,
+                AccordionBlock,
+                BadgeListBlock,
+                MediaNewsListBlock,
+                ToolsListBlock,
+                DatasetListBlock,
+                ContributionStepListBlock
+              ],
               required: true,
               admin: {
                 initCollapsed: true,

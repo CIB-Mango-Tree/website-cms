@@ -72,6 +72,8 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    meetingScheduleItems: MeetingScheduleItem;
+    researchSources: ResearchSource;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -94,6 +96,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    meetingScheduleItems: MeetingScheduleItemsSelect<false> | MeetingScheduleItemsSelect<true>;
+    researchSources: ResearchSourcesSelect<false> | ResearchSourcesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -200,7 +204,137 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | {
+        tabs?:
+          | {
+              title: string;
+              icon?: string | null;
+              content: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'selector';
+      }
+    | {
+        items?:
+          | {
+              title?: string | null;
+              content?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'accordion';
+      }
+    | {
+        items?:
+          | {
+              content: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'badgeList';
+      }
+    | {
+        items?:
+          | {
+              title: string;
+              description: string;
+              link: string;
+              image?: string | null;
+              publication?: string | null;
+              date?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'mediaNewsList';
+      }
+    | {
+        items?:
+          | {
+              name: string;
+              description?: string | null;
+              link: string;
+              color?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'toolsList';
+      }
+    | {
+        items?:
+          | {
+              name: string;
+              description?: string | null;
+              link: string;
+              access?: ('free' | 'api-required' | 'application-required') | null;
+              color?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'datasetList';
+      }
+    | {
+        steps?:
+          | {
+              title: string;
+              icon?: ('bug' | 'code' | 'lightbulb' | 'book') | null;
+              ctaLink: string;
+              ctaName: string;
+              description?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'contributionStepList';
+      }
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -781,6 +915,34 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "meetingScheduleItems".
+ */
+export interface MeetingScheduleItem {
+  id: number;
+  type: 'virtual' | 'in-person';
+  name: string;
+  day: string;
+  time?: string | null;
+  link?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "researchSources".
+ */
+export interface ResearchSource {
+  id: number;
+  title: string;
+  authors?: string | null;
+  publication?: string | null;
+  year?: number | null;
+  link: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -990,6 +1152,14 @@ export interface PayloadLockedDocument {
         value: number | User;
       } | null)
     | ({
+        relationTo: 'meetingScheduleItems';
+        value: number | MeetingScheduleItem;
+      } | null)
+    | ({
+        relationTo: 'researchSources';
+        value: number | ResearchSource;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: number | Redirect;
       } | null)
@@ -1087,6 +1257,109 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        selector?:
+          | T
+          | {
+              tabs?:
+                | T
+                | {
+                    title?: T;
+                    icon?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        accordion?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        badgeList?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        mediaNewsList?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    link?: T;
+                    image?: T;
+                    publication?: T;
+                    date?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        toolsList?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    name?: T;
+                    description?: T;
+                    link?: T;
+                    color?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        datasetList?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    name?: T;
+                    description?: T;
+                    link?: T;
+                    access?: T;
+                    color?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        contributionStepList?:
+          | T
+          | {
+              steps?:
+                | T
+                | {
+                    title?: T;
+                    icon?: T;
+                    ctaLink?: T;
+                    ctaName?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -1353,6 +1626,32 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "meetingScheduleItems_select".
+ */
+export interface MeetingScheduleItemsSelect<T extends boolean = true> {
+  type?: T;
+  name?: T;
+  day?: T;
+  time?: T;
+  link?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "researchSources_select".
+ */
+export interface ResearchSourcesSelect<T extends boolean = true> {
+  title?: T;
+  authors?: T;
+  publication?: T;
+  year?: T;
+  link?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
