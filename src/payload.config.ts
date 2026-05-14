@@ -36,6 +36,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     livePreview: {
+      url: isProduction ? 'http://localhost:4321' : 'https://cibmangotree.org',
       collections: ['pages'],
       breakpoints: [
         {
