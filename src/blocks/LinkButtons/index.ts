@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 const LinkButtonsBlock: Block = {
   slug: 'linkButtons',
+  interfaceName: 'LinkButtons',
   labels: {
     singular: 'Link Buttons Block',
     plural: 'Link Buttons Blocks',

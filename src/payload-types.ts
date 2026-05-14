@@ -211,184 +211,16 @@ export interface Page {
     | MediaBlock
     | ArchiveBlock
     | FormBlock
-    | {
-        tabs?:
-          | {
-              title: string;
-              icon?: string | null;
-              content: {
-                root: {
-                  type: string;
-                  children: {
-                    type: any;
-                    version: number;
-                    [k: string]: unknown;
-                  }[];
-                  direction: ('ltr' | 'rtl') | null;
-                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                  indent: number;
-                  version: number;
-                };
-                [k: string]: unknown;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'selector';
-      }
-    | {
-        items?:
-          | {
-              title?: string | null;
-              content?: {
-                root: {
-                  type: string;
-                  children: {
-                    type: any;
-                    version: number;
-                    [k: string]: unknown;
-                  }[];
-                  direction: ('ltr' | 'rtl') | null;
-                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                  indent: number;
-                  version: number;
-                };
-                [k: string]: unknown;
-              } | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'accordion';
-      }
-    | {
-        items?:
-          | {
-              content: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'badgeList';
-      }
-    | {
-        items?:
-          | {
-              title: string;
-              description: string;
-              link: string;
-              image?: string | null;
-              publication?: string | null;
-              date?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'mediaNewsList';
-      }
-    | {
-        items?:
-          | {
-              name: string;
-              description?: string | null;
-              link: string;
-              color?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'toolsList';
-      }
-    | {
-        items?:
-          | {
-              name: string;
-              description?: string | null;
-              link: string;
-              access?: ('free' | 'api-required' | 'application-required') | null;
-              color?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'datasetList';
-      }
-    | {
-        steps?:
-          | {
-              title: string;
-              icon?: ('bug' | 'code' | 'lightbulb' | 'book') | null;
-              ctaLink: string;
-              ctaName: string;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'contributionStepList';
-      }
-    | {
-        items?:
-          | {
-              name: string;
-              description?: string | null;
-              downloadLink: string;
-              fileName: string;
-              fileSize: number;
-              requirements?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'platformDownloadList';
-      }
-    | {
-        platform: string;
-        title: string;
-        commands?:
-          | {
-              content: string;
-              id?: string | null;
-            }[]
-          | null;
-        footnote?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'installMethodListBlock';
-      }
-    | {
-        items?:
-          | {
-              type:
-                | 'primary'
-                | 'secondary'
-                | 'transparent'
-                | 'white'
-                | 'gold'
-                | 'transparent-primary'
-                | 'transparent-secondary'
-                | 'transparent-gold';
-              name: string;
-              link: string;
-              icon?: string | null;
-              'shine effect'?: boolean | null;
-              'hover effect'?: boolean | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'linkButtons';
-      }
+    | Selector
+    | Accordion
+    | BadgeList
+    | MediaNewsList
+    | ToolsList
+    | DatasetList
+    | ContributionStepList
+    | PlatformDownloadList
+    | InstallMethodList
+    | LinkButtons
   )[];
   meta?: {
     title?: string | null;
@@ -971,6 +803,224 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Selector".
+ */
+export interface Selector {
+  tabs?:
+    | {
+        title: string;
+        icon?: string | null;
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'selector';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Accordion".
+ */
+export interface Accordion {
+  items?:
+    | {
+        title?: string | null;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'accordion';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BadgeList".
+ */
+export interface BadgeList {
+  items?:
+    | {
+        content: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'badgeList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaNewsList".
+ */
+export interface MediaNewsList {
+  items?:
+    | {
+        title: string;
+        description: string;
+        link: string;
+        image?: string | null;
+        publication?: string | null;
+        date?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaNewsList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ToolsList".
+ */
+export interface ToolsList {
+  items?:
+    | {
+        name: string;
+        description?: string | null;
+        link: string;
+        color?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'toolsList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DatasetList".
+ */
+export interface DatasetList {
+  items?:
+    | {
+        name: string;
+        description?: string | null;
+        link: string;
+        access?: ('free' | 'api-required' | 'application-required') | null;
+        color?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'datasetList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContributionStepList".
+ */
+export interface ContributionStepList {
+  steps?:
+    | {
+        title: string;
+        icon?: ('bug' | 'code' | 'lightbulb' | 'book') | null;
+        ctaLink: string;
+        ctaName: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contributionStepList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PlatformDownloadList".
+ */
+export interface PlatformDownloadList {
+  items?:
+    | {
+        name: string;
+        description?: string | null;
+        downloadLink: string;
+        fileName: string;
+        fileSize: number;
+        requirements?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'platformDownloadList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InstallMethodList".
+ */
+export interface InstallMethodList {
+  platform: string;
+  title: string;
+  commands?:
+    | {
+        content: string;
+        id?: string | null;
+      }[]
+    | null;
+  footnote?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'installMethodListBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LinkButtons".
+ */
+export interface LinkButtons {
+  items?:
+    | {
+        type:
+          | 'primary'
+          | 'secondary'
+          | 'transparent'
+          | 'white'
+          | 'gold'
+          | 'transparent-primary'
+          | 'transparent-secondary'
+          | 'transparent-gold';
+        name: string;
+        link: string;
+        icon?: string | null;
+        'shine effect'?: boolean | null;
+        'hover effect'?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'linkButtons';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "meetingScheduleItems".
  */
 export interface MeetingScheduleItem {
@@ -1313,158 +1363,16 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
-        selector?:
-          | T
-          | {
-              tabs?:
-                | T
-                | {
-                    title?: T;
-                    icon?: T;
-                    content?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        accordion?:
-          | T
-          | {
-              items?:
-                | T
-                | {
-                    title?: T;
-                    content?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        badgeList?:
-          | T
-          | {
-              items?:
-                | T
-                | {
-                    content?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaNewsList?:
-          | T
-          | {
-              items?:
-                | T
-                | {
-                    title?: T;
-                    description?: T;
-                    link?: T;
-                    image?: T;
-                    publication?: T;
-                    date?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        toolsList?:
-          | T
-          | {
-              items?:
-                | T
-                | {
-                    name?: T;
-                    description?: T;
-                    link?: T;
-                    color?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        datasetList?:
-          | T
-          | {
-              items?:
-                | T
-                | {
-                    name?: T;
-                    description?: T;
-                    link?: T;
-                    access?: T;
-                    color?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        contributionStepList?:
-          | T
-          | {
-              steps?:
-                | T
-                | {
-                    title?: T;
-                    icon?: T;
-                    ctaLink?: T;
-                    ctaName?: T;
-                    description?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        platformDownloadList?:
-          | T
-          | {
-              items?:
-                | T
-                | {
-                    name?: T;
-                    description?: T;
-                    downloadLink?: T;
-                    fileName?: T;
-                    fileSize?: T;
-                    requirements?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        installMethodListBlock?:
-          | T
-          | {
-              platform?: T;
-              title?: T;
-              commands?:
-                | T
-                | {
-                    content?: T;
-                    id?: T;
-                  };
-              footnote?: T;
-              id?: T;
-              blockName?: T;
-            };
-        linkButtons?:
-          | T
-          | {
-              items?:
-                | T
-                | {
-                    type?: T;
-                    name?: T;
-                    link?: T;
-                    icon?: T;
-                    'shine effect'?: T;
-                    'hover effect'?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
+        selector?: T | SelectorSelect<T>;
+        accordion?: T | AccordionSelect<T>;
+        badgeList?: T | BadgeListSelect<T>;
+        mediaNewsList?: T | MediaNewsListSelect<T>;
+        toolsList?: T | ToolsListSelect<T>;
+        datasetList?: T | DatasetListSelect<T>;
+        contributionStepList?: T | ContributionStepListSelect<T>;
+        platformDownloadList?: T | PlatformDownloadListSelect<T>;
+        installMethodListBlock?: T | InstallMethodListSelect<T>;
+        linkButtons?: T | LinkButtonsSelect<T>;
       };
   meta?:
     | T
@@ -1561,6 +1469,178 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Selector_select".
+ */
+export interface SelectorSelect<T extends boolean = true> {
+  tabs?:
+    | T
+    | {
+        title?: T;
+        icon?: T;
+        content?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Accordion_select".
+ */
+export interface AccordionSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        title?: T;
+        content?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BadgeList_select".
+ */
+export interface BadgeListSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        content?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaNewsList_select".
+ */
+export interface MediaNewsListSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        link?: T;
+        image?: T;
+        publication?: T;
+        date?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ToolsList_select".
+ */
+export interface ToolsListSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        name?: T;
+        description?: T;
+        link?: T;
+        color?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DatasetList_select".
+ */
+export interface DatasetListSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        name?: T;
+        description?: T;
+        link?: T;
+        access?: T;
+        color?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContributionStepList_select".
+ */
+export interface ContributionStepListSelect<T extends boolean = true> {
+  steps?:
+    | T
+    | {
+        title?: T;
+        icon?: T;
+        ctaLink?: T;
+        ctaName?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PlatformDownloadList_select".
+ */
+export interface PlatformDownloadListSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        name?: T;
+        description?: T;
+        downloadLink?: T;
+        fileName?: T;
+        fileSize?: T;
+        requirements?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InstallMethodList_select".
+ */
+export interface InstallMethodListSelect<T extends boolean = true> {
+  platform?: T;
+  title?: T;
+  commands?:
+    | T
+    | {
+        content?: T;
+        id?: T;
+      };
+  footnote?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LinkButtons_select".
+ */
+export interface LinkButtonsSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        type?: T;
+        name?: T;
+        link?: T;
+        icon?: T;
+        'shine effect'?: T;
+        'hover effect'?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

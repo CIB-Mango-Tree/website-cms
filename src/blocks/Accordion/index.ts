@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 const AccordionBlock: Block = {
   slug: 'accordion',
+  interfaceName: 'Accordion',
   labels: {
     singular: 'Accordion',
     plural: 'Accordions',

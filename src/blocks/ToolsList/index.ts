@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 const ToolsListBlock: Block = {
   slug: 'toolsList',
+  interfaceName: 'ToolsList',
   labels: {
     singular: 'Add a Tools List',
     plural: 'Add Tools Lists'

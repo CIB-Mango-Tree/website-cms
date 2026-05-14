@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 const ContributionStepListBlock: Block = {
   slug: 'contributionStepList',
+  interfaceName: 'ContributionStepList',
   labels: {
     singular: 'Add a Contribution Step List',
     plural: 'Add Contribution Step Lists'

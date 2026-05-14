@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 const SelectorBlock: Block = {
   slug: 'selector',
+  interfaceName: 'Selector',
   labels: {
     singular: 'Selector Tab',
     plural: 'Selector Tabs',

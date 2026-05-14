@@ -2,6 +2,7 @@ import type {Block} from 'payload'
 
 const PlatformDownloadListBlock: Block = {
   slug: 'platformDownloadList',
+  interfaceName: 'PlatformDownloadList',
   labels: {
     singular: 'Add Platform Download List',
     plural: 'Add Platform Download Lists',

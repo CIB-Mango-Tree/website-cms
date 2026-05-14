@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 const BadgeListBlock: Block = {
   slug: 'badgeList',
+  interfaceName: 'BadgeList',
   labels: {
     singular: 'Add Badge List',
     plural: 'Add Badge Lists',

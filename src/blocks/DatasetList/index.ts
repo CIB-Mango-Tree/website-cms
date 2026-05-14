@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 const DatasetListBlock: Block = {
   slug: 'datasetList',
+  interfaceName: 'DatasetList',
   labels: {
     singular: 'Add a Dataset List',
     plural: 'Add Dataset Lists'

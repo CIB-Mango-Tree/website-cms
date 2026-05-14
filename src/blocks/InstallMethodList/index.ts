@@ -2,6 +2,7 @@ import type {Block} from 'payload'
 
 const InstallMethodListBlock: Block = {
   slug: 'installMethodListBlock',
+  interfaceName: 'InstallMethodList',
   labels: {
     singular: 'Add Install Method List',
     plural: 'Add Install Method Lists',
