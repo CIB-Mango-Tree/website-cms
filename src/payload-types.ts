@@ -122,9 +122,10 @@ export interface Config {
     footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
-  user: User & {
-    collection: 'users';
+  widgets: {
+    collections: CollectionsWidget;
   };
+  user: User;
   jobs: {
     tasks: {
       schedulePublish: TaskSchedulePublish;
@@ -364,6 +365,20 @@ export interface Page {
         blockName?: string | null;
         blockType: 'installMethodListBlock';
       }
+    | {
+        items?:
+          | {
+              type: 'primary' | 'secondary' | 'transparent';
+              name: string;
+              'shine effect'?: boolean | null;
+              'hover effect'?: boolean | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'linkButtons';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -600,6 +615,7 @@ export interface User {
       }[]
     | null;
   password?: string | null;
+  collection: 'users';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1422,6 +1438,21 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        linkButtons?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    type?: T;
+                    name?: T;
+                    'shine effect'?: T;
+                    'hover effect'?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -2093,6 +2124,16 @@ export interface FooterSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "collections_widget".
+ */
+export interface CollectionsWidget {
+  data?: {
+    [k: string]: unknown;
+  };
+  width: 'full';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

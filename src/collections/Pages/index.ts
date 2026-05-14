@@ -16,6 +16,7 @@ import ContributionStepListBlock from '@/blocks/ContributionStepList'
 import PlatformDownloadListBlock from '@/blocks/PlatformDownloadList'
 import InstallMethodListBlock from '@/blocks/InstallMethodList'
 import SelectorBlock from '@/blocks/Selector'
+import LinkButtonsBlock from '@/blocks/LinkButtons'
 import { hero } from '@/heros/config'
 import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
@@ -95,7 +96,8 @@ export const Pages: CollectionConfig<'pages'> = {
                 DatasetListBlock,
                 ContributionStepListBlock,
                 PlatformDownloadListBlock,
-                InstallMethodListBlock
+                InstallMethodListBlock,
+                LinkButtonsBlock
               ],
               required: true,
               admin: {
