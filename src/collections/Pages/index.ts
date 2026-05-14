@@ -13,6 +13,8 @@ import MediaNewsListBlock from '@/blocks/MediaNewsList'
 import DatasetListBlock from '@/blocks/DatasetList'
 import ToolsListBlock from '@/blocks/ToolsList'
 import ContributionStepListBlock from '@/blocks/ContributionStepList'
+import PlatformDownloadListBlock from '@/blocks/PlatformDownloadList'
+import InstallMethodListBlock from '@/blocks/InstallMethodList'
 import SelectorBlock from '@/blocks/Selector'
 import { hero } from '@/heros/config'
 import { slugField } from 'payload'
@@ -91,7 +93,9 @@ export const Pages: CollectionConfig<'pages'> = {
                 MediaNewsListBlock,
                 ToolsListBlock,
                 DatasetListBlock,
-                ContributionStepListBlock
+                ContributionStepListBlock,
+                PlatformDownloadListBlock,
+                InstallMethodListBlock
               ],
               required: true,
               admin: {

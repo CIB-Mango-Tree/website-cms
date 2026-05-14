@@ -334,6 +334,36 @@ export interface Page {
         blockName?: string | null;
         blockType: 'contributionStepList';
       }
+    | {
+        items?:
+          | {
+              name: string;
+              description?: string | null;
+              downloadLink: string;
+              fileName: string;
+              fileSize: number;
+              requirements?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'platformDownloadList';
+      }
+    | {
+        platform: string;
+        title: string;
+        commands?:
+          | {
+              content: string;
+              id?: string | null;
+            }[]
+          | null;
+        footnote?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'installMethodListBlock';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1357,6 +1387,38 @@ export interface PagesSelect<T extends boolean = true> {
                     description?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        platformDownloadList?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    name?: T;
+                    description?: T;
+                    downloadLink?: T;
+                    fileName?: T;
+                    fileSize?: T;
+                    requirements?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        installMethodListBlock?:
+          | T
+          | {
+              platform?: T;
+              title?: T;
+              commands?:
+                | T
+                | {
+                    content?: T;
+                    id?: T;
+                  };
+              footnote?: T;
               id?: T;
               blockName?: T;
             };
