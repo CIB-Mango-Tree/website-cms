@@ -371,6 +371,7 @@ export interface Page {
               type: 'primary' | 'secondary' | 'transparent' | 'white' | 'gold';
               name: string;
               link: string;
+              icon?: string | null;
               'shine effect'?: boolean | null;
               'hover effect'?: boolean | null;
               id?: string | null;
@@ -1448,6 +1449,7 @@ export interface PagesSelect<T extends boolean = true> {
                     type?: T;
                     name?: T;
                     link?: T;
+                    icon?: T;
                     'shine effect'?: T;
                     'hover effect'?: T;
                     id?: T;

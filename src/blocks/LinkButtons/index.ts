@@ -29,6 +29,10 @@ const LinkButtonsBlock: Block = {
           required: true
         },
         {
+          type: 'text',
+          name: 'icon'
+        },
+        {
           type: 'row',
           fields: [
             {
