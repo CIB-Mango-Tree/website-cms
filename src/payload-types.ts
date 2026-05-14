@@ -368,7 +368,15 @@ export interface Page {
     | {
         items?:
           | {
-              type: 'primary' | 'secondary' | 'transparent' | 'white' | 'gold';
+              type:
+                | 'primary'
+                | 'secondary'
+                | 'transparent'
+                | 'white'
+                | 'gold'
+                | 'transparent-primary'
+                | 'transparent-secondary'
+                | 'transparent-gold';
               name: string;
               link: string;
               icon?: string | null;
