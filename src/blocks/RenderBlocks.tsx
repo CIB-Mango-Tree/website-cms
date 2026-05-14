@@ -30,6 +30,7 @@ export const RenderBlocks: React.FC<{
           const { blockType } = block
 
           if (blockType && blockType in blockComponents) {
+            /* @ts-expect-error there may be some mismatch between the expected types here */
             const Block = blockComponents[blockType]
 
             if (Block) {
