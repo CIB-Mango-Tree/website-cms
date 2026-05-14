@@ -14,7 +14,7 @@ const LinkButtonsBlock: Block = {
         {
           type: 'select',
           name: 'type',
-          options: ['primary', 'secondary', 'transparent'],
+          options: ['primary', 'secondary', 'transparent', 'white', 'gold'],
           defaultValue: 'primary',
           required: true,
         },
@@ -22,6 +22,11 @@ const LinkButtonsBlock: Block = {
           type: 'text',
           name: 'name',
           required: true,
+        },
+        {
+          type: 'text',
+          name: 'link',
+          required: true
         },
         {
           type: 'row',
