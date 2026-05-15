@@ -36,10 +36,16 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     livePreview: {
-      url: ({ data }) => {
-        const baseUrl = 'https://cibmangotree.org'; // Define frontend strictly
-        return data?.slug ? `${baseUrl}/${data.slug}` : baseUrl;
-      },  
+      url: ({ data, collectionConfig }) => {
+          const baseUrl = 'https://cibmangotree.org'
+          
+          // Handle the homepage vs sub-pages
+          if (data?.slug === 'home') {
+            return baseUrl
+          }
+          
+          return data?.slug ? `${baseUrl}/${data?.slug}` : baseUrl
+      },
       collections: ['pages'],
       breakpoints: [
         {
