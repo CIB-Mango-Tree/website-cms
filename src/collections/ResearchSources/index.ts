@@ -1,7 +1,15 @@
+import { anyone } from '../../access/anyone'
+import { authenticated } from '../../access/authenticated'
 import type { CollectionConfig } from 'payload'
 
 const ResearchSources: CollectionConfig = {
   slug: 'researchSources',
+  access: {
+    read: anyone,
+    update: authenticated,
+    delete: authenticated,
+    create: authenticated
+  },
   fields: [
     {
       type: 'text',

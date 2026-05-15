@@ -36,7 +36,10 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     livePreview: {
-      url: isProduction ? 'http://localhost:4321' : 'https://cibmangotree.org',
+      url: ({ data }) => {
+        const baseUrl = 'https://cibmangotree.org'; // Define frontend strictly
+        return data?.slug ? `${baseUrl}/${data.slug}` : baseUrl;
+      },  
       collections: ['pages'],
       breakpoints: [
         {
