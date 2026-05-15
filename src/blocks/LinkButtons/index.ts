@@ -15,7 +15,7 @@ const LinkButtonsBlock: Block = {
         {
           type: 'select',
           name: 'type',
-          options: ['primary', 'secondary', 'transparent', 'white', 'gold', 'transparent-primary', 'transparent-secondary', 'transparent-gold'],
+          options: ['primary', 'secondary', 'gold', 'transparent', 'transparent-secondary', 'transparent-gold'],
           defaultValue: 'primary',
           required: true,
         },

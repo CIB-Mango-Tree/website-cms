@@ -998,15 +998,7 @@ export interface InstallMethodList {
 export interface LinkButtons {
   items?:
     | {
-        type:
-          | 'primary'
-          | 'secondary'
-          | 'transparent'
-          | 'white'
-          | 'gold'
-          | 'transparent-primary'
-          | 'transparent-secondary'
-          | 'transparent-gold';
+        type: 'primary' | 'secondary' | 'gold' | 'transparent' | 'transparent-secondary' | 'transparent-gold';
         name: string;
         link: string;
         icon?: string | null;
