@@ -940,10 +940,10 @@ export interface ContributionStepList {
   steps?:
     | {
         title: string;
-        icon?: ('bug' | 'code' | 'lightbulb' | 'book') | null;
         ctaLink: string;
         ctaName: string;
         description?: string | null;
+        icon?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -999,9 +999,9 @@ export interface LinkButtons {
         type: 'primary' | 'secondary' | 'gold' | 'transparent' | 'transparent-secondary' | 'transparent-gold';
         name: string;
         link: string;
-        icon?: string | null;
         'shine effect'?: boolean | null;
         'hover effect'?: boolean | null;
+        icon?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1570,10 +1570,10 @@ export interface ContributionStepListSelect<T extends boolean = true> {
     | T
     | {
         title?: T;
-        icon?: T;
         ctaLink?: T;
         ctaName?: T;
         description?: T;
+        icon?: T;
         id?: T;
       };
   id?: T;
@@ -1626,9 +1626,9 @@ export interface LinkButtonsSelect<T extends boolean = true> {
         type?: T;
         name?: T;
         link?: T;
-        icon?: T;
         'shine effect'?: T;
         'hover effect'?: T;
+        icon?: T;
         id?: T;
       };
   id?: T;

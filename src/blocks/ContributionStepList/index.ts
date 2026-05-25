@@ -1,3 +1,4 @@
+import IconField from '@/fields/iconField'
 import type { Block } from 'payload'
 
 const ContributionStepListBlock: Block = {
@@ -18,28 +19,6 @@ const ContributionStepListBlock: Block = {
           required: true
         },
         {
-          type: 'select',
-          name: 'icon',
-          options: [
-            {
-              label: 'Bug',
-              value: 'bug'
-            },
-            {
-              label: 'Code',
-              value: 'code'
-            },
-            {
-              label: 'Light Bulb',
-              value: 'lightbulb'
-            },
-            {
-              label: 'Book',
-              value: 'book'
-            },
-          ]
-        },
-        {
           type: 'row',
           fields: [
             {
@@ -58,6 +37,7 @@ const ContributionStepListBlock: Block = {
           type: 'textarea',
           name: 'description'
         },
+        IconField
       ]
     }
   ]

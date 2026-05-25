@@ -1,3 +1,4 @@
+import IconField from '@/fields/iconField'
 import type { Block } from 'payload'
 
 const LinkButtonsBlock: Block = {
@@ -30,10 +31,6 @@ const LinkButtonsBlock: Block = {
           required: true
         },
         {
-          type: 'text',
-          name: 'icon'
-        },
-        {
           type: 'row',
           fields: [
             {
@@ -46,6 +43,7 @@ const LinkButtonsBlock: Block = {
             },
           ],
         },
+        IconField,
       ],
     },
   ],
