@@ -91,7 +91,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
-      "unrs-resolver"
+      "sharp",
+      "unrs-resolver",
+      "workerd"
     ]
   },
   "cloudflare": {
