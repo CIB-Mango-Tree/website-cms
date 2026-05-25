@@ -3,7 +3,7 @@
 import { useDeferredValue, useMemo, useState } from 'react';
 import { useField, FieldLabel } from '@payloadcms/ui';
 import { icons as lucideIcons } from 'lucide-react';
-import { lucideIconOptions, kebabToPascal } from '@/utilities/lucideIcons';
+import { lucideIconOptions } from '@/utilities/lucideIcons';
 import type { ReactElement, FC, ChangeEvent } from 'react';
 import type { TextFieldClientComponent } from 'payload';
 import type { LucideIconOption } from '@/utilities/lucideIcons';
@@ -16,7 +16,7 @@ type IconName = keyof typeof lucideIcons;
 const getIcon = (value: string | null | undefined) => {
   if (value == null) return null;
 
-  const Icon = lucideIcons[kebabToPascal(value) as IconName];
+  const Icon = lucideIcons[value as IconName];
 
   return Icon ?? null;
 };
@@ -74,22 +74,22 @@ export const IconPickerField: TextFieldClientComponent = ({ field, path }): Reac
       />
 
       <div className={styles.grid} role="listbox" aria-label="Lucide icons">
-        {filtered.map(({ name, value: v }: LucideIconOption): ReactElement<FC> => {
-          const Icon = lucideIcons[kebabToPascal(v) as IconName];
+        {filtered.map(({ name, value: val }: LucideIconOption): ReactElement<FC> => {
+          const Icon = lucideIcons[val as IconName];
 
           if (!Icon) return null;
 
-          const selected = value === v;
+          const selected = value === val;
 
           return (
             <button
-              key={v}
+              key={val}
               type="button"
               role="option"
               aria-selected={selected}
-              title={`${name} (${v})`}
+              title={`${name} (${val})`}
               className={`${styles.cell} ${selected ? styles.cellSelected : ''}`}
-              onClick={() => setValue(v)}
+              onClick={() => setValue(val)}
             >
               <Icon size={20} aria-hidden />
             </button>
