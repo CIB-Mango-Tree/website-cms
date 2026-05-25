@@ -822,7 +822,7 @@ export interface Selector {
           };
           [k: string]: unknown;
         };
-        icon?: string | null;
+        Icon?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -943,7 +943,7 @@ export interface ContributionStepList {
         ctaLink: string;
         ctaName: string;
         description?: string | null;
-        icon?: string | null;
+        Icon?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1001,7 +1001,7 @@ export interface LinkButtons {
         link: string;
         'shine effect'?: boolean | null;
         'hover effect'?: boolean | null;
-        icon?: string | null;
+        Icon?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1472,7 +1472,7 @@ export interface SelectorSelect<T extends boolean = true> {
     | {
         title?: T;
         content?: T;
-        icon?: T;
+        Icon?: T;
         id?: T;
       };
   id?: T;
@@ -1573,7 +1573,7 @@ export interface ContributionStepListSelect<T extends boolean = true> {
         ctaLink?: T;
         ctaName?: T;
         description?: T;
-        icon?: T;
+        Icon?: T;
         id?: T;
       };
   id?: T;
@@ -1628,7 +1628,7 @@ export interface LinkButtonsSelect<T extends boolean = true> {
         link?: T;
         'shine effect'?: T;
         'hover effect'?: T;
-        icon?: T;
+        Icon?: T;
         id?: T;
       };
   id?: T;
