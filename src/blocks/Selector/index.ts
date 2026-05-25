@@ -1,3 +1,4 @@
+import IconField from '@/fields/iconField'
 import type { Block } from 'payload'
 
 const SelectorBlock: Block = {
@@ -13,24 +14,16 @@ const SelectorBlock: Block = {
       name: 'tabs',
       fields: [
         {
-          type: 'row',
-          fields: [
-            {
-              type: 'text',
-              name: 'title',
-              required: true,
-            },
-            {
-              type: 'text',
-              name: 'icon',
-            },
-          ],
+          type: 'text',
+          name: 'title',
+          required: true,
         },
         {
           type: 'richText',
           name: 'content',
           required: true,
         },
+        IconField
       ],
     },
   ],

@@ -122,10 +122,9 @@ export interface Config {
     footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
-  widgets: {
-    collections: CollectionsWidget;
+  user: User & {
+    collection: 'users';
   };
-  user: User;
   jobs: {
     tasks: {
       schedulePublish: TaskSchedulePublish;
@@ -457,7 +456,6 @@ export interface User {
       }[]
     | null;
   password?: string | null;
-  collection: 'users';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -809,7 +807,6 @@ export interface Selector {
   tabs?:
     | {
         title: string;
-        icon?: string | null;
         content: {
           root: {
             type: string;
@@ -825,6 +822,7 @@ export interface Selector {
           };
           [k: string]: unknown;
         };
+        icon?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1473,8 +1471,8 @@ export interface SelectorSelect<T extends boolean = true> {
     | T
     | {
         title?: T;
-        icon?: T;
         content?: T;
+        icon?: T;
         id?: T;
       };
   id?: T;
@@ -2208,16 +2206,6 @@ export interface FooterSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "collections_widget".
- */
-export interface CollectionsWidget {
-  data?: {
-    [k: string]: unknown;
-  };
-  width: 'full';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
