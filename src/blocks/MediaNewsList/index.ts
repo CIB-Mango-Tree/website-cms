@@ -18,9 +18,17 @@ const MediaNewsListBlock: Block = {
           required: true,
         },
         {
-          type: 'textarea',
-          name: 'description',
-          required: true,
+          type: 'row',
+          fields: [
+            {
+              type: 'date',
+              name: 'date',
+            },
+            {
+              type: 'text',
+              name: 'publication',
+            },
+          ]
         },
         {
           type: 'text',
@@ -28,16 +36,14 @@ const MediaNewsListBlock: Block = {
           required: true,
         },
         {
-          type: 'text',
+          type: 'textarea',
+          name: 'description',
+          required: true,
+        },
+        {
+          type: 'upload',
           name: 'image',
-        },
-        {
-          type: 'text',
-          name: 'publication',
-        },
-        {
-          type: 'date',
-          name: 'date',
+          relationTo: 'media'
         },
       ],
     },

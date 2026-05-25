@@ -883,11 +883,11 @@ export interface MediaNewsList {
   items?:
     | {
         title: string;
-        description: string;
-        link: string;
-        image?: string | null;
-        publication?: string | null;
         date?: string | null;
+        publication?: string | null;
+        link: string;
+        description: string;
+        image?: (number | null) | Media;
         id?: string | null;
       }[]
     | null;
@@ -1516,11 +1516,11 @@ export interface MediaNewsListSelect<T extends boolean = true> {
     | T
     | {
         title?: T;
-        description?: T;
-        link?: T;
-        image?: T;
-        publication?: T;
         date?: T;
+        publication?: T;
+        link?: T;
+        description?: T;
+        image?: T;
         id?: T;
       };
   id?: T;
