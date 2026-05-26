@@ -7,7 +7,7 @@
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
     "deploy": "pnpm run --ignore-workspace deploy:database && pnpm run --ignore-workspace deploy:app",
-    "deploy:app": "opennextjs-cloudflare build --ignore-workspace --env=$CLOUDFLARE_ENV && opennextjs-cloudflare deploy --ignore-workspace --env=$CLOUDFLARE_ENV",
+    "deploy:app": "opennextjs-cloudflare build --env=$CLOUDFLARE_ENV && opennextjs-cloudflare deploy --env=$CLOUDFLARE_ENV",
     "deploy:database": "cross-env NODE_ENV=production PAYLOAD_SECRET=ignore payload migrate && wrangler d1 execute D1 --command 'PRAGMA optimize' --env=$CLOUDFLARE_ENV --remote",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "devsafe": "rm -rf .next && rm -rf .open-next && cross-env NODE_OPTIONS=--no-deprecation next dev",
@@ -86,7 +86,7 @@
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0",
-    "pnpm": "^9 || ^10 || ^11"
+    "pnpm": "^>=11"
   },
   "cloudflare": {
     "bindings": {
@@ -94,5 +94,6 @@
         "description": "Generate a random string using `openssl rand -hex 32`"
       }
     }
-  }
+  },
+  "packageManager": "pnpm@11.5.0"
 }
